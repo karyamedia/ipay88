@@ -1,0 +1,25 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+use IPay88\Payment\Request;
+
+class Payment extends CI_Controller {
+
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function index()
+	{
+		$ipay88 = new Request('xxxxxxx');
+		$ipay88->setMerchantCode('xxxxx');
+
+		echo "<pre>";
+		print_r($ipay88);
+
+	}
+
+}
+
+/* End of file Payment.php */
+/* Location: ./application/controllers/Payment.php */
