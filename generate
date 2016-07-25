@@ -1,13 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php
 
 use IPay88\Payment\Request;
 
-class Payment extends CI_Controller {
-
-	public function __construct()
-	{
-		parent::__construct();
-	}
+class Payment {
 
 	public function index()
 	{
@@ -22,4 +17,3 @@ class Payment extends CI_Controller {
 }
 
 /* End of file Payment.php */
-/* Location: ./application/controllers/Payment.php */
