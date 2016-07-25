@@ -1,7 +1,6 @@
 <?php 
-use IPay\RequestForm;
-
 namespace aa6my\IPay;
+use aa6my\IPayForm\RequestForm;
 
 class IPay
 {
