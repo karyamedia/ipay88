@@ -1,5 +1,5 @@
 {
-    "name": "aa6my/IPay88",
+    "name": "aa6my/ipay",
     "description": "PHP library for Ipay88, Malaysia's online payment",
     "keywords": ["ipay88", "malaysia", "api"],
     "homepage": "https://github.com/aa6my/ipay88",
@@ -10,9 +10,9 @@
             "email": "aa6my@qq.com"
         }
     ],
-	"autoload": {
+    "autoload": {
         "psr-0" : {
-            "aa6my\\IPay88" : "src"
+            "aa6my\\ipay" : "src"
         }
     }
 }
