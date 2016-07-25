@@ -1,8 +1,8 @@
 {
-    "name": "aaa6my/ipay",
+    "name": "aa6my/ipay88",
     "description": "Ipay88 payment gateway module",
     "keywords": ["ipay", "malaysia", "api"],
-    "homepage": "https://github.com/aa6my/ipay",
+    "homepage": "https://github.com/aa6my/ipay88",
     "license": "MIT",
     "autoload": {
         "psr-4": {
