@@ -5,8 +5,8 @@
     "homepage": "https://github.com/aa6my/ipay88",
     "license": "MIT",
     "autoload": {
-        "psr-0" : {
-            "IPay88\\" : "src/"
+        "psr-4": {
+            "IPay88\\": "src/IPay88"
         }
     },
     "require-dev": {
