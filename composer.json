@@ -1,18 +1,27 @@
 {
-    "name": "aa6my/ipay",
-    "description": "PHP library for Ipay88, Malaysia's online payment",
-    "keywords": ["ipay88", "malaysia", "api"],
-    "homepage": "https://github.com/aa6my/ipay88",
+    "name": "aaa6my/ipay",
+    "description": "Ipay88 payment gateway module",
+    "keywords": ["ipay", "malaysia", "api"],
+    "homepage": "https://github.com/aa6my/ipay",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "IPay88\\": "src/IPay88"
+        }
+    },
+    "require-dev": {
+        "phpspec/phpspec": "2.0.*@dev"
+    },
     "license": "MIT",
     "authors": [
+        {
+            "name": "Fikri Marhan",
+            "email": "fikri.marhan@gmail.com"
+        },
         {
             "name": "aa6my",
             "email": "aa6my@qq.com"
         }
     ],
-    "autoload": {
-        "psr-0" : {
-            "aa6my\\ipay" : "src"
-        }
-    }
+    "minimum-stability": "stable"
 }

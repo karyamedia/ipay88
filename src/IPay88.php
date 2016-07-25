@@ -1,8 +1,7 @@
 <?php 
-namespace aa6my\IPay;
-use aa6my\IPayForm\RequestForm;
+use IPay88\RequestForm;
 
-class IPay
+class IPay88
 {
 	private $merchantKey = null;
 	public $merchantCode = null;
@@ -104,6 +103,6 @@ class IPay
     	$args['responseUrl'] = $this->responseUrl;
     	$args['backendUrl'] = $this->backendResponseUrl;
 
-        return new aa6my\IPayForm\RequestForm($args);
+        return new IPay88\RequestForm($args);
     }
 }

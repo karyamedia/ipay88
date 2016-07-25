@@ -1,6 +1,6 @@
 <?php
 
-namespace aa6my\IPayForm;
+namespace Ipay88;
 
 use Mustache;
 class RequestForm
