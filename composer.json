@@ -1,0 +1,18 @@
+{
+    "name": "aa6my/ipay88",
+    "description": "PHP library for Ipay88, Malaysia's online payment",
+    "keywords": ["ipay88", "malaysia", "api"],
+    "homepage": "https://github.com/aa6my/ipay88",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "aa6my",
+            "email": "aa6my@qq.com"
+        }
+    ],
+	"autoload": {
+        "psr-0" : {
+            "aa6my\\ipay88" : "src"
+        }
+    }
+}
