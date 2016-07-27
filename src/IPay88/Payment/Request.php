@@ -1,4 +1,6 @@
-<?php namespace IPay88\Payment;
+<?php 
+
+namespace IPay88\Payment;
 
 use IPay88\Security\Signature;
 
@@ -199,8 +201,21 @@ class Request
 				$request->$method($fieldValues[$field]);
 			}
 		}
+		echo "<form id='autosubmit' action='".self::$paymentUrl."' method='post'>";
+			foreach ($fieldValues as $key => $val) {
+		    echo "<input type='hidden' name='".ucfirst($key)."' value='".htmlspecialchars($val)."'>";
+			}
+		echo "</form>";
+		echo "
+		<script type='text/javascript'>
+		    function submitForm() {
+		        document.getElementById('autosubmit').submit();
+		    }
+		    window.onload = submitForm;
+		</script>
 
-		return $request;
+		";		
+
 	}
 
 	/**
