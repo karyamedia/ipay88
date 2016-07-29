@@ -3,6 +3,7 @@
 namespace IPay88\Payment;
 
 use IPay88\Security\Signature;
+use IPay88\View\RequestForm;
 
 class Request
 {
@@ -193,29 +194,7 @@ class Request
 	public static function make($merchantKey, $fieldValues)
 	{
 		$request = new Request($merchantKey);
-		foreach(self::$fillable_fields as $field)
-		{
-			if(isset($fieldValues[$field]))
-			{
-				$method = 'set'.ucfirst($field);
-				$request->$method($fieldValues[$field]);
-			}
-		}
-		echo "<form id='autosubmit' action='".self::$paymentUrl."' method='post'>";
-			foreach ($fieldValues as $key => $val) {
-		    echo "<input type='hidden' name='".ucfirst($key)."' value='".htmlspecialchars($val)."'>";
-			}
-		echo "</form>";
-		echo "
-		<script type='text/javascript'>
-		    function submitForm() {
-		        document.getElementById('autosubmit').submit();
-		    }
-		    window.onload = submitForm;
-		</script>
-
-		";		
-
+		RequestForm::render($fieldValues, self::$paymentUrl);
 	}
 
 	/**

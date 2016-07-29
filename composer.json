@@ -9,9 +9,6 @@
             "IPay88\\": "src/IPay88"
         }
     },
-    "require-dev": {
-        "phpspec/phpspec": "2.0.*@dev"
-    },
     "license": "MIT",
     "authors": [
         {

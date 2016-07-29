@@ -1,4 +1,0 @@
-suites:
-  IPay88_suite:
-    namespace: IPay88
-    spec_prefix: spec
