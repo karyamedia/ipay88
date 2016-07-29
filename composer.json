@@ -9,7 +9,6 @@
             "IPay88\\": "src/IPay88"
         }
     },
-    "license": "MIT",
     "authors": [
         {
             "name": "Fikri Marhan",
@@ -20,5 +19,9 @@
             "email": "aa6my@qq.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "stable",
+    "require-dev": {
+        "phpunit/phpunit": "5.4.*"
+    }
+
 }
