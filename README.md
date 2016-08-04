@@ -10,7 +10,7 @@ Ipay88 payment gateway module.
 I've make this project available to install via [Composer](https://getcomposer.org/) with following command:
 
 ```bash
-$ composer require karyamedia/ipay88
+$ composer require karyamedia/ipay88 dev-master
 ```
 
 ## Example Controller
