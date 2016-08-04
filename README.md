@@ -1,5 +1,4 @@
 # IPay88
-[![Codeship](https://img.shields.io/codeship/f7d82b50-3796-0134-4f9b-2691568e5d59.svg)](https://codeship.com/projects/f7d82b50-3796-0134-4f9b-2691568e5d59)
 [![Build Status](https://img.shields.io/packagist/dt/karyamedia/ipay88.svg?maxAge=2592000)](https://packagist.org/packages/karyamedia/ipay88)
 
 Ipay88 payment gateway module.
