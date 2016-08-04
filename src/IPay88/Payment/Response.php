@@ -36,4 +36,17 @@ class Response
 	    return $return;
 	}
 
+	public function requery($payment_details) {
+		if (!function_exists('curl_init')) {
+			trigger_error('PHP cURL extension is required.');
+			return FALSE;
+		}
+		$curl = curl_init(self::$requery_url . '?' . http_build_query($payment_details));
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
+		$result = trim(curl_exec($curl));
+		//$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+		curl_close($curl);
+		return $result;
+	}
+
 }
