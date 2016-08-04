@@ -7,7 +7,6 @@ use IPay88\View\RequestForm;
 
 class Request
 {
-    public static $requeryUrl = 'https://www.mobile88.com/epayment/enquiry.asp';
     public static $paymentUrl = 'https://www.mobile88.com/epayment/entry.asp';
 
 	private $merchantKey;
@@ -196,43 +195,6 @@ class Request
 		$request = new Request($merchantKey);
 		RequestForm::render($fieldValues, self::$paymentUrl);
 	}
-
-	/**
-	* Check payment status (re-query).
-	*
-	* @access public
-	* @param array $paymentDetails The following variables are required:
-	* - MerchantCode (Optional)
-	* - RefNo
-	* - Amount
-	* @return string Possible payment status from iPay88 server:
-	* - 00                 - Successful payment
-	* - Invalid parameters - Parameters passed is incorrect
-	* - Record not found   - Could not find the record.
-	* - Incorrect amount   - Amount differs.
-	* - Payment fail       - Payment failed.
-	* - M88Admin           - Payment status updated by Mobile88 Admin (Fail)
-	*/
-    public static function requery($merchantCode, $refNo, $amount) 
-    {
-        if (!function_exists('curl_init')) {
-            trigger_error('PHP cURL extension is required.');
-            return false;
-        }
-        $curl = curl_init(
-        			self::$requeryUrl . '?' . http_build_query(array(
-		        		'MerchantCode' => $merchantCode,
-		        		'RefNo' => $refNo,
-		        		'Amount'=> $amount
-		        	))
-		        );
-
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $result = trim(curl_exec($curl));
-        curl_close($curl);
-
-        return $result;
-    }
 
     /**
     * @access public

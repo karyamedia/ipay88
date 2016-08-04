@@ -6,6 +6,8 @@ use IPay88\Security\Signature;
 
 class Response
 {
+	public static $requeryUrl = 'https://www.mobile88.com/epayment/enquiry.asp';
+
 	private $return;
 	public function init($merchantCode, $requery = TRUE, $return_data = TRUE) {
 	    $return = array(
@@ -36,17 +38,41 @@ class Response
 	    return $return;
 	}
 
-	public function requery($payment_details) {
-		if (!function_exists('curl_init')) {
-			trigger_error('PHP cURL extension is required.');
-			return FALSE;
-		}
-		$curl = curl_init(self::$requery_url . '?' . http_build_query($payment_details));
-		curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
-		$result = trim(curl_exec($curl));
-		//$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-		curl_close($curl);
-		return $result;
-	}
+	/**
+	* Check payment status (re-query).
+	*
+	* @access public
+	* @param array $paymentDetails The following variables are required:
+	* - MerchantCode (Optional)
+	* - RefNo
+	* - Amount
+	* @return string Possible payment status from iPay88 server:
+	* - 00                 - Successful payment
+	* - Invalid parameters - Parameters passed is incorrect
+	* - Record not found   - Could not find the record.
+	* - Incorrect amount   - Amount differs.
+	* - Payment fail       - Payment failed.
+	* - M88Admin           - Payment status updated by Mobile88 Admin (Fail)
+	*/
+    public static function requery($merchantCode, $refNo, $amount) 
+    {
+        if (!function_exists('curl_init')) {
+            trigger_error('PHP cURL extension is required.');
+            return false;
+        }
+        $curl = curl_init(
+        			self::$requeryUrl . '?' . http_build_query(array(
+		        		'MerchantCode' => $merchantCode,
+		        		'RefNo' => $refNo,
+		        		'Amount'=> $amount
+		        	))
+		        );
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        $result = trim(curl_exec($curl));
+        curl_close($curl);
+
+        return $result;
+    }
 
 }
