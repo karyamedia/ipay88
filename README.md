@@ -23,38 +23,38 @@ class Payment {
 	protected $_merchantCode;
 	protected $_merchantKey;
 
-	public function __construct()
-	{
+	public function __construct(){
 		parent::__construct();
-		$this->_merchantCode = 'xxxxxx'; //MerchantCode confidential
-		$this->_merchantKey = 'xxxxxxxxx'; //MerchantKey confidential
+		/**
+		 * MerchantCode confidential
+		 * MerchantKey confidential
+		 */
+		$this->_merchantCode = 'xxxxxx';
+		$this->_merchantKey = 'xxxxxxxxx';
 	}
 
-	public function index()
-	{
+	public function index(){
 		$request = new IPay88\Payment\Request($this->_merchantKey);
-		$this->_data = array(
-			'merchantCode' => $request->setMerchantCode($this->_merchantCode),
-			'paymentId' =>  $request->setPaymentId(1),
-			'refNo' => $request->setRefNo('EXAMPLE0001'),
-			'amount' => $request->setAmount('0.50'),
-			'currency' => $request->setCurrency('MYR'),
-			'prodDesc' => $request->setProdDesc('Testing'),
-			'userName' => $request->setUserName('Your name'),
-			'userEmail' => $request->setUserEmail('email@example.com'),
-			'userContact' => $request->setUserContact('0123456789'),
-			'remark' => $request->setRemark('Some remarks here..'),
-			'lang' => $request->setLang('UTF-8'),
-			'signature' => $request->getSignature(),
-			'responseUrl' => $request->setResponseUrl('http://example.com/response'),
-			'backendUrl' => $request->setBackendUrl('http://example.com/backend')
-			);
+
+		$this->_data['merchantCode'] 		= $request->setMerchantCode($this->_merchantCode);
+		$this->_data['paymentId'] 		= $request->setPaymentId(1);
+		$this->_data['refNo'] 			= $request->setRefNo('EXAMPLE0001');
+		$this->_data['amount'] 			= $request->setAmount('0.50');
+		$this->_data['currency'] 		= $request->setCurrency('MYR');
+		$this->_data['prodDesc'] 		= $request->setProdDesc('Testing');
+		$this->_data['userName'] 		= $request->setUserName('Your name');
+		$this->_data['userEmail'] 		= $request->setUserEmail('email@example.com');
+		$this->_data['userContact'] 		= $request->setUserContact('0123456789');
+		$this->_data['remark'] 			= $request->setRemark('Some remarks here..');
+		$this->_data['lang'] 			= $request->setLang('UTF-8');
+		$this->_data['signature'] 		= $request->getSignature();
+		$this->_data['responseUrl'] 		= $request->setResponseUrl('http://example.com/response');
+		$this->_data['backendUrl'] 		= $request->setBackendUrl('http://example.com/backend');
 
 		IPay88\Payment\Request::make($this->_merchantKey, $this->_data);
 	}
-	
-	public function response()
-	{	
+
+	public function response(){	
 		$response = (new IPay88\Payment\Response)->init($this->_merchantCode);
 		echo "<pre>";
 		print_r($response);
