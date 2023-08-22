@@ -63,6 +63,7 @@ class Payment {
 ```
 
 ## Credits
+[Shiro Amada](https://github.com/shiroamada)
 
 [Leow Kah Thong](https://github.com/ktleow)
 
