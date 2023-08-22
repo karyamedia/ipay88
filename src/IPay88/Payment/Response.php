@@ -6,7 +6,7 @@ use IPay88\Security\Signature;
 
 class Response
 {
-	public static $requeryUrl = 'https://www.mobile88.com/epayment/enquiry.asp';
+	public static $requeryUrl = ' https://payment.ipay88.com.my/epayment/entry.asp';
 
 	private $return;
 	public function init($merchantCode, $requery = TRUE, $return_data = TRUE) {

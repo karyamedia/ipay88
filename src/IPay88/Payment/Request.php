@@ -7,7 +7,7 @@ use IPay88\View\RequestForm;
 
 class Request
 {
-    public static $paymentUrl = 'https://www.mobile88.com/epayment/entry.asp';
+    public static $paymentUrl = 'https://payment.ipay88.com.my/epayment/entry.asp';
 
 	private $merchantKey;
 
